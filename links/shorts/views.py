@@ -5,7 +5,9 @@ from django.utils import timezone
 from .models import Link
 
 def index(request):
-    return render(request, 'short/index.html', {})
+    print(request.GET)
+    links = Link.objects.all()
+    return render(request, 'short/index.html', {'links' : links})
 
 def short(request, short):
     link = get_object_or_404(Link, short=short)
@@ -19,5 +21,8 @@ def shortdetails(request, short):
     return render(request, 'short/details.html', {'link': link})
 
 def new(request):
-    link = Link.create(url=request.POST['url'])
-    return render(request, 'short/details.html', {'link': link})
+    if 'url' in request.POST:
+        link = Link.create(url=request.POST['url'])
+        return render(request, 'short/details.html', {'link': link})
+    else:
+        return render(request, 'short/new.html', {})
