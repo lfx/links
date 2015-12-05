@@ -68,6 +68,8 @@ TEMPLATES = [
         },
     },
 ]
+STATIC_ROOT = BASE_DIR + '/static/'
+STATIC_URL = '/static/'
 
 WSGI_APPLICATION = 'links.wsgi.application'
 

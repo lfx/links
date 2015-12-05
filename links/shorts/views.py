@@ -6,7 +6,6 @@ from django.views import generic
 from .models import Link
 
 def index(request):
-    print(request.GET)
     links = Link.objects.all()
     return render(request, 'short/index.html', {'links' : links})
 
