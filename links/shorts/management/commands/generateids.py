@@ -9,14 +9,15 @@ class Command(BaseCommand):
     def add_arguments(self, parser):
         parser.add_argument('size', nargs='+', type=int)
 
+    def symbols(self, size):
+        sym = (letter for letter in product(ascii_lowercase+digits, repeat=size))
+        for symbol in sym:
+            yield symbol
+
     def handle(self, *args, **options):
         size = options['size'][0]
-        if size < 5:
-            keywords = [''.join(i) for i in product(ascii_lowercase+digits, repeat = size)]
-            for key in keywords:
-                short = ShortList(short=key)
-                short.save()
-
-            self.stdout.write("Generated %s items" % len(keywords))
-        else:
-            self.stdout.write("Size is too big!!!!")
+        enums = enumerate(self.symbols(size))
+        for i, word in enums:
+            short = ShortList(short=''.join(word))
+            short.save()
+            print(i, ''.join(word))
