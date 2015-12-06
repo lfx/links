@@ -1,0 +1,10 @@
+doctype html
+html
+  head
+    meta(charset='utf-8')
+    title Add new!
+  body
+    form(action="{% url 'new' %}", method='post')
+      | {% csrf_token %}
+      input(type='text', name='url', value='', placeholder='URL')
+      input(type='submit', value='Add')

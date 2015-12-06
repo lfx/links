@@ -1,0 +1,33 @@
+{
+  "name": "links",
+  "version": "0.0.1",
+  "description": "Learning django!",
+  "main": "gulpfile.js",
+  "dependencies": {
+    "gulp": "^3.9.0",
+    "gulp-jade": "^1.1.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:lfx/links.git"
+  },
+  "keywords": [
+    "links",
+    "short",
+    "url",
+    "shortener",
+    "django",
+    "django1.9",
+    "python3"
+  ],
+  "author": "Liudas Sodonis <_firstname_@_lastname_.lt>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/lfx/links/issues"
+  },
+  "homepage": "https://github.com/lfx/links"
+}
