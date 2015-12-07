@@ -4,7 +4,7 @@ html
     meta(charset='utf-8')
     title Short links!
     |     {% load staticfiles %}
-    link(rel='stylesheet', type='text/css', href="{% static 'short/style.css' %}")
+    link(rel='stylesheet', type='text/css', href="{% static 'app.css' %}")
   body
     a(href="{% url 'new' %}") Make new
     ul
@@ -13,3 +13,8 @@ html
         a(href='{{ link.url }}') {{ link.short }}
         |  {{ link.clicks }} {{ link.last_access_date|date:'Y-m-d H:i' }} {{ link.pub_date|date:'Y-m-d H:i' }}
       | {% endfor %}
+
+    script(src="{% static 'js/jquery.min.js' %}")
+    script(src="{% static 'js/what-input.min.js' %}")
+    script(src="{% static 'js/foundation.min.js' %}")
+    script(src="{% static 'js/app.js' %}")
