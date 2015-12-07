@@ -6,14 +6,31 @@ html
     |     {% load staticfiles %}
     link(rel='stylesheet', type='text/css', href="{% static 'app.css' %}")
   body
-    a(href="{% url 'new' %}") Make new
-    ul
-      | {% for link in links %}
-      li
-        a(href='{{ link.url }}') {{ link.short }}
-        |  {{ link.clicks }} {{ link.last_access_date|date:'Y-m-d H:i' }} {{ link.pub_date|date:'Y-m-d H:i' }}
-      | {% endfor %}
-
+    .top-bar
+      .top-bar-left 
+        ul.menu
+          li.menu-text Links!
+          li
+            a(href="{% url 'new' %}") Make new
+    .row
+      .large-12.columns
+        
+        table
+          thead
+            tr
+              th Short URL
+              th URL
+              th Last clicked
+              th Published
+          tbody
+          | {% for link in links %}  
+          tr
+            td {{ link.short }}
+            td {{ link.url }}
+            td {{ link.last_access_date|date:'Y-m-d H:i' }}
+            td {{ link.pub_date|date:'Y-m-d H:i' }}
+          | {% endfor %}
+        
     script(src="{% static 'js/jquery.min.js' %}")
     script(src="{% static 'js/what-input.min.js' %}")
     script(src="{% static 'js/foundation.min.js' %}")

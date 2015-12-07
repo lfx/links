@@ -3126,7 +3126,7 @@ table.hover tr:nth-of-type(even):hover {
   .top-bar::after {
     clear: both; }
   .top-bar, .top-bar ul {
-    background-color: #eee; }
+    background-color: #3399ff; }
     .top-bar li > a, .top-bar ul li > a {
       color: #fff; }
   .top-bar input {
