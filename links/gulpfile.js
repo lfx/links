@@ -2,18 +2,26 @@ var gulp = require('gulp');
 var jade = require('gulp-jade');
 var $ = require('gulp-load-plugins')();
 
+
+function swallowError (error) {
+  console.log(error.toString());
+  this.emit('end');
+}
+
 gulp.task('jade', function() {
   var LOCALS = {};
 
-  gulp.src('./shorts/templates/short_tpl/*.jade')
+  return gulp.src(['./shorts/templates/short_tpl/*.jade'])
     .pipe(jade({
-      locals: LOCALS
-    }))
+        locals: LOCALS
+      })
+      .on('error', swallowError))
     .pipe(gulp.dest('./shorts/templates/short/'))
+
 });
 
 gulp.task('watch', function() {
-  gulp.watch('./shorts/templates/short_tpl/*.jade', ['jade']);
+  gulp.watch('./shorts/templates/short_tpl/**/*.jade', ['jade']);
   gulp.watch(['static_raw/zu/scss/**/*.scss'], ['sass']);
   gulp.watch(['static_raw/zu/js/*.js'], ['js']);
 })
