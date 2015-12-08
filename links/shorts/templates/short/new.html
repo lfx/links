@@ -1,1 +1,3 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Add new!</title></head><body><form action="{% url 'new' %}" method="post">{% csrf_token %}<input type="text" name="url" value="" placeholder="URL"><input type="submit" value="Add"></form></body></html>
+{% extends "short/base.html" %}
+{% block title %} New! {% endblock %}
+{% block content %}<div class="new-page"><div><form action="{% url 'new' %}" method="post">{% csrf_token %}<input type="text" name="url" value="" placeholder="URL"/><input type="submit" value="Add"/></form></div></div>{% endblock %}

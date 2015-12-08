@@ -3722,3 +3722,8 @@ table.hover tr:nth-of-type(even):hover {
 .long-delay {
   -webkit-animation-delay: 700ms !important;
           animation-delay: 700ms !important; }
+
+.main-row {
+  margin: 20px 0; }
+  .main-row .index-page table {
+    width: 100%; }

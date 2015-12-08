@@ -10,7 +10,8 @@ html
     .top-bar
       .top-bar-left 
         ul.menu
-          li.menu-text Links!
+          li.menu-text
+            a(href="{% url 'index' %}") Links!
           li
             a(href="{% url 'new' %}") Make new
     

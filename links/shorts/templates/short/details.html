@@ -1,1 +1,3 @@
-<!DOCTYPE html><html><head><meta charset="utf-8"><title>Details</title></head><body>{{link.url}} >> {{link.short}} >> {{link.clicks}}</body></html>
+{% extends "short/base.html" %}
+{% block title %} Details of {{link.short}}! {% endblock %}
+{% block content %}<div class="details-page"><div>Url: {{link.url}} Short: {{link.short}} Clicks: {{link.clicks}}</div></div>{% endblock %}
