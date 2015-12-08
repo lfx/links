@@ -2,6 +2,10 @@ var gulp = require('gulp');
 var jade = require('gulp-jade');
 var $ = require('gulp-load-plugins')();
 
+var sassPaths = [
+  'static_raw/zu/bower_components/foundation-sites/scss',
+  'static_raw/zu/bower_components/motion-ui/src'
+];
 
 function swallowError (error) {
   console.log(error.toString());
@@ -20,19 +24,8 @@ gulp.task('jade', function() {
 
 });
 
-gulp.task('watch', function() {
-  gulp.watch('./shorts/templates/short_tpl/**/*.jade', ['jade']);
-  gulp.watch(['static_raw/zu/scss/**/*.scss'], ['sass']);
-  gulp.watch(['static_raw/zu/js/*.js'], ['js']);
-})
-
-var sassPaths = [
-  'static_raw/zu/bower_components/foundation-sites/scss',
-  'static_raw/zu/bower_components/motion-ui/src'
-];
-
 gulp.task('js', function() {
-  gulp.src('./static_raw/zu/js/app.js')
+  return gulp.src('./static_raw/zu/js/app.js')
     .pipe(gulp.dest('./static/style/js'));
 })
 
@@ -47,3 +40,9 @@ gulp.task('sass', function() {
     }))
     .pipe(gulp.dest('./static/style'));
 });
+
+gulp.task('watch', function() {
+  gulp.watch('./shorts/templates/short_tpl/**/*.jade', ['jade']);
+  gulp.watch(['static_raw/zu/scss/**/*.scss'], ['sass']);
+  gulp.watch(['static_raw/zu/js/*.js'], ['js']);
+})
