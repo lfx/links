@@ -17,7 +17,8 @@ gulp.task('jade', function() {
 
   return gulp.src(['./shorts/templates/short_tpl/*.jade'])
     .pipe(jade({
-        locals: LOCALS
+        locals: LOCALS,
+        pretty: true
       })
       .on('error', swallowError))
     .pipe(gulp.dest('./shorts/templates/short/'))

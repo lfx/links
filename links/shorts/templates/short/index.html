@@ -1,3 +1,23 @@
+
 {% extends "short/base.html" %}
 {% block title %}Links List{% endblock %}
-{% block content %}<div class="index-page"><table><thead><tr><th>Short URL</th><th>URL</th><th>Last clicked</th><th>Published</th></tr></thead><tbody></tbody>{% for link in links %}  <tr><td>{{ link.short }}</td><td>{{ link.url }}</td><td>{{ link.last_access_date|date:'Y-m-d H:i' }}</td><td>{{ link.pub_date|date:'Y-m-d H:i' }}</td></tr>{% endfor %}</table>{% endblock %}</div>
+{% block content %}
+<div class="index-page">
+  <table>
+    <thead>
+      <tr>
+        <th>Short URL</th>
+        <th>URL</th>
+        <th>Last clicked</th>
+        <th>Published</th>
+      </tr>
+    </thead>
+    <tbody></tbody>{% for link in links %}  
+    <tr>
+      <td>{{ link.short }}</td>
+      <td>{{ link.url }}</td>
+      <td>{{ link.last_access_date|date:'Y-m-d H:i' }}</td>
+      <td>{{ link.pub_date|date:'Y-m-d H:i' }}</td>
+    </tr>{% endfor %}
+  </table>{% endblock %}
+</div>

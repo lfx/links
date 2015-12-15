@@ -1,3 +1,7 @@
+
 {% extends "short/base.html" %}
 {% block title %} Details of {{link.short}}! {% endblock %}
-{% block content %}<div class="details-page"><div>Url: {{link.url}} Short: {{link.short}} Clicks: {{link.clicks}}</div></div>{% endblock %}
+{% block content %}
+<div class="details-page">
+  <div>Url: {{link.url}} Short: {{link.short}} Clicks: {{link.clicks}}</div>
+</div>{% endblock %}
